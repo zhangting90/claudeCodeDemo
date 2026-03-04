@@ -6,7 +6,8 @@
       "Bash(findstr:*)",
       "Bash(taskkill:*)",
       "Bash(cd:*)",
-      "Bash(gh pr:*)"
+      "Bash(gh pr:*)",
+      "Bash(git push:*)"
     ]
   }
 }
