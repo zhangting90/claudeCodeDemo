@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>编辑用户</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        input[type="text"],
+        input[type="number"],
+        input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        input:focus {
+            outline: none;
+            border-color: #007bff;
+        }
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            margin-right: 10px;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            color: white;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        .btn-secondary {
+            background-color: #6c757d;
+            color: white;
+        }
+        .btn-secondary:hover {
+            background-color: #545b62;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>编辑用户</h1>
+        <form action="#" th:action="@{/users/{id}(id=${user.id})}" method="post" th:object="${user}">
+            <div class="form-group">
+                <label for="id">ID：</label>
+                <input type="text" id="id" name="id" th:field="*{id}" readonly style="background-color: #f8f9fa;">
+            </div>
+            <div class="form-group">
+                <label for="name">姓名：</label>
+                <input type="text" id="name" name="name" th:field="*{name}" required>
+            </div>
+            <div class="form-group">
+                <label for="age">年龄：</label>
+                <input type="number" id="age" name="age" th:field="*{age}" required min="1">
+            </div>
+            <div class="form-group">
+                <label for="phone">电话：</label>
+                <input type="text" id="phone" name="phone" th:field="*{phone}" required>
+            </div>
+            <div class="form-group">
+                <label for="email">邮箱：</label>
+                <input type="email" id="email" name="email" th:field="*{email}" required>
+            </div>
+            <button type="submit" class="btn btn-primary">更新</button>
+            <a href="/users" class="btn btn-secondary">取消</a>
+        </form>
+    </div>
+</body>
+</html>
